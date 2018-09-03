@@ -19,4 +19,4 @@ WORKDIR /usr/src/app
 # Run the container under "node" user by default
 USER node
 
-CMD [ "/usr/bin/Xvfb", ":99", "-ac", "-screen", "0", "1024x768x16" ]
+CMD [ "xvfb-run", "-a", "--server-args='-ac -screen 0 1024x768x16'", "npm", "run", "test:ci" ]
